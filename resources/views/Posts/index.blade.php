@@ -45,11 +45,11 @@
     </div>
 
     <style>
+        
         .w-5{
             display: none;
         }
-        .text-sm{
-        }
+
     </style>
 
 @endsection
