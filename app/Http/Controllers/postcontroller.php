@@ -98,5 +98,15 @@ class postcontroller extends Controller
         return redirect()->route('posts.show', ['post' => $request->post]);
     }
 
+    //destory
+
+    public function destroy($post)
+    {
+       //dd($post);
+        $singlepost=Flight::find($post);
+        $singlepost->delete();
+        return redirect()->route('posts.index');
+    }
+
 
 }

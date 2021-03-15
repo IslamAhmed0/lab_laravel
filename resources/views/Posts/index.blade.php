@@ -28,8 +28,10 @@
 {{--                /posts/{{$a['id']}}--}}
                 <a href="{{route('posts.show',['post'=>$post['id']])}}" class="btn btn-info">view</a>
                 <a href="{{route('posts.edit',['post'=>$post['id']])}}" class="btn btn-primary">edit</a>
-                <a class="btn btn-danger">delete</a>
-
+                <form style="display: inline-block" action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="post">
+                    @method('DELETE') @csrf
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure')">Delete</button>
+                </form>
             </td>
         </tr>
         @endforeach
@@ -45,7 +47,7 @@
     </div>
 
     <style>
-        
+
         .w-5{
             display: none;
         }
