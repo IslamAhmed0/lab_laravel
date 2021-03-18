@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Flight;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -45,7 +46,7 @@ class postcontroller extends Controller
 
     }
     //store
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
 
     {
 //        Flight::create([
@@ -59,8 +60,10 @@ class postcontroller extends Controller
         $flight->title = $request->title;
         $flight->desc = $request->description;
         $flight->user_id=$request->user_id;
-
-
+        $request->validate([
+            'title'=> ['required','min:3'],
+            'description'=> ['required','min:30']
+        ]);
 
         $flight->saveOrFail();
 
@@ -93,6 +96,15 @@ class postcontroller extends Controller
             'user_id'=>$request->user_id
 
         ];
+//        $request->validate([
+//            'title'=> ['required','min:3'],
+//            'description'=> ['required','min:30']
+//        ],[
+//            'title.required'=>'title is required',
+//             'description.required'=>'description is required'
+//
+//            ]
+//        );
 
         $post->update($attributes);
         return redirect()->route('posts.show', ['post' => $request->post]);

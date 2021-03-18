@@ -6,11 +6,17 @@
 
             <div class="form-group">
                 <label >Title</label>
-                <input name="title" type="text" class="form-control" aria-describedby="emailHelp">
+                <input name="title" type="text" class="form-control @error('title') is-invalid @enderror" aria-describedby="emailHelp">
+                @error('title')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Description</label>
-                <textarea name="description" class="form-control"></textarea>
+                <textarea name="description" class="form-control @error('description') is-invalid @enderror"></textarea>
+                @error('description')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-group">
