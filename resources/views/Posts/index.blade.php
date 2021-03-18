@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('mycontent')
+@section('content')
 
     <a href='{{route('posts.create')}}' class="btn btn-primary">Create</a>
     <table class="table">
@@ -7,9 +7,12 @@
         <tr>
             <th scope="col">id</th>
             <th scope="col">title</th>
+            <th scope="col">Slug</th>
+
             <th scope="col">posted by</th>
             <th scope="col">create at</th>
             <th scope="col">desc</th>
+
 
             <th scope="col">action</th>
 
@@ -20,6 +23,8 @@
         <tr>
             <th scope="row">{{$post->id}}</th>
             <td>{{$post['title']}}</td>
+            <td>{{ $post->slug }}</td>
+
             <td>{{$post->user?$post->user->name :"user not found"}}</td>
             <td>{{$post['created_at']->format('y-m-d')}}</td>
             <td>{{$post['desc']}}</td>

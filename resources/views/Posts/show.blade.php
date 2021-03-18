@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('mycontent')
+@section('content')
     <div class="card">
         <div class="card-header">
            <a class="btn btn-primary" href="{{route('posts.index')}}">all posts</a>

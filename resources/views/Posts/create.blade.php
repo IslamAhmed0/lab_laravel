@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('mycontent')
+@section('content')
     <div class="container">
         <form  method="POST" action="{{route('posts.store')}}" enctype="multipart/form-data">
             @csrf

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('mycontent')
+@section('content')
     <div class="container">
         <form  method="post" action="{{route('posts.update',$post->id)}}">
             @csrf
